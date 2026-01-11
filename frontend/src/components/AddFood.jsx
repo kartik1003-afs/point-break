@@ -33,7 +33,7 @@ const AddFood = ({ onFoodAdded }) => {
         });
 
         try {
-            const response = await fetch('http://localhost:5000/api/foods', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/foods`, {
                 method: 'POST',
                 headers: {
                     'x-admin-password': localStorage.getItem('adminPassword')

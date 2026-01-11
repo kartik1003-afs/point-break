@@ -7,7 +7,7 @@ const FoodList = ({ foods, onDelete, onView, onRefresh, readOnly }) => {
         e.stopPropagation();
         if (window.confirm('Are you sure you want to remove this exquisite item?')) {
             try {
-                const response = await fetch(`http://localhost:5000/api/foods/${id}`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/foods/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'x-admin-password': localStorage.getItem('adminPassword')
@@ -39,7 +39,7 @@ const FoodList = ({ foods, onDelete, onView, onRefresh, readOnly }) => {
         });
 
         try {
-            const response = await fetch(`http://localhost:5000/api/foods/${id}/images`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/foods/${id}/images`, {
                 method: 'POST',
                 headers: {
                     'x-admin-password': localStorage.getItem('adminPassword')
